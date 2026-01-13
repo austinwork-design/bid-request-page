@@ -234,6 +234,7 @@
       .navbar nav{ display:none; } /* similar “clean” mobile header */
     }
   </style>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -356,7 +357,9 @@
               <label for="description">Description</label>
               <textarea id="description" name="description"></textarea>
             </div>
-
+            <div class="captcha-wrap">
+              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+            </div>
             <div class="actions">
               <button class="submit" type="submit" name="submit">Submit</button>
             </div>
@@ -375,6 +378,12 @@
 
   if (form && ipField) {
     form.addEventListener("submit", async (e) => {
+      
+      if (!window.grecaptcha || !grecaptcha.getResponse()) {
+        e.preventDefault();
+        alert("Please complete the CAPTCHA before submitting.");
+        return;
+      }
       // if already set, allow normal submit
       if (ipField.value) return;
 
