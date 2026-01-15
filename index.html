@@ -243,39 +243,11 @@
 </head>
 
 <body>
-  <!-- Top navigation -->
-  <div class="navwrap">
-    <div class="navbar">
-      <a class="logo" href="#">
-        <img src="TEAMCRAFT_LOGO_URL" alt="TeamCraft Roofing">
-      </a>
 
-      <nav>
-        <a href="#">About Us</a>
-        <a href="#">Roofing Systems</a>
-        <a href="#">Service Locations</a>
-        <a href="#">Services</a>
-        <a href="#">Employment</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Blog Articles</a>
-        <a href="#">Customer Login</a>
-      </nav>
-
-      <a class="cta" href="#">Report a Roof Leak</a>
-    </div>
-  </div>
 
   <!-- Light gray banner + page content -->
   <section class="page">
     <div class="container">
-      <h1 class="title">Request A Roofing Bid</h1>
-      <div class="subtitle">Our mission is simple - we shelter you.</div>
-      <p class="lede">
-        For a new bid on your re-roofing or new construction project, please complete the form below, or give us a call.
-      </p>
-
-      <a class="call-btn" href="tel:8887663001">(888) 766-3001</a>
-
       <div class="content">
         <div class="form-wrap">
           <!-- ===== YOUR ORIGINAL SALESFORCE FORM (same action + fields) ===== -->
@@ -375,8 +347,6 @@
     </div>
   </section>
   <script>
-  const IPINFO_TOKEN = "328febfcc92fd0";
-  const IPINFO_URL = `https://ipinfo.io/json?token=${encodeURIComponent(IPINFO_TOKEN)}`;
 
   const form = document.querySelector('form[action*="WebToLead"]');
   const ipField = document.getElementById("ip_location_info");
@@ -395,23 +365,7 @@
       e.preventDefault();
 
       try {
-        const controller = new AbortController();
-        const t = setTimeout(() => controller.abort(), 1500);
-
-        const res = await fetch(IPINFO_URL, { signal: controller.signal });
-        clearTimeout(t);
-
-        if (res.ok) {
-          const data = await res.json();
-
-          // Keep it compact
-          ipField.value = JSON.stringify({
-            ip: data.ip,
-            city: data.city,
-            region: data.region,
-            country: data.country,
-            postal: data.postal,
-            loc: data.loc
+        !function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("GNLKQH794L6Q");
           });
         }
       } catch (err) {
